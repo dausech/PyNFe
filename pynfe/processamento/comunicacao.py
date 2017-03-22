@@ -185,9 +185,7 @@ class ComunicacaoSefaz(Comunicacao):
             url = NFE['SVC-RS']['CADASTRO']
         else:
             url = self._get_url(modelo=modelo, consulta='CADASTRO')
-        
-        print('URL=>'+url)
-        
+                        
         raiz = etree.Element('ConsCad', versao='2.00', xmlns=NAMESPACE_NFE)
         info = etree.SubElement(raiz, 'infCons')
         etree.SubElement(info, 'xServ').text = 'CONS-CAD'
