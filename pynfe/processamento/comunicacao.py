@@ -185,7 +185,9 @@ class ComunicacaoSefaz(Comunicacao):
             url = NFE['SVC-RS']['CADASTRO']
         else:
             url = self._get_url(modelo=modelo, consulta='CADASTRO')
-
+        
+        print('URL=>'+url)
+        
         raiz = etree.Element('ConsCad', versao='2.00', xmlns=NAMESPACE_NFE)
         info = etree.SubElement(raiz, 'infCons')
         etree.SubElement(info, 'xServ').text = 'CONS-CAD'
@@ -325,7 +327,10 @@ class ComunicacaoSefaz(Comunicacao):
             if modelo == 'nfe':
                 # nfe Ex: https://nfe.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao.asmx
                 #         https://nfe-homologacao.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao.asmx
-                self.url = NFE['SVRS'][ambiente] + NFE['SVRS'][consulta]
+                if consulta == 'CADASTRO':
+                    self.url = NFE['SVRS'][consulta]
+                else:
+                    self.url = NFE['SVRS'][ambiente] + NFE['SVRS'][consulta]
             elif modelo == 'nfce':
                 # nfce Ex: https://nfce.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao.asmx
                 #          https://nfce-homologacao.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao.asmx
