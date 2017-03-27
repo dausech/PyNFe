@@ -194,8 +194,8 @@ class ComunicacaoSefaz(Comunicacao):
             etree.SubElement(info, 'IE').text = ie
         if len(cnpj) > 0:    
             etree.SubElement(info, 'CNPJ').text = cnpj
-        if len(cpf) > 0:    
-            etree.SubElement(info, 'CPF').text = cpf
+            
+        # etree.SubElement(info, 'CPF').text = cpf
         # Monta XML para envio da requisição
         xml = self._construir_xml_status_pr(cabecalho=self._cabecalho_soap(metodo='CadConsultaCadastro2'), metodo='CadConsultaCadastro2', dados=raiz)
         # Chama método que efetua a requisição POST no servidor SOAP
