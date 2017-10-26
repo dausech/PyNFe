@@ -418,7 +418,7 @@ class ComunicacaoSefaz(Comunicacao):
             xml = xml_declaration + xml
 
             # Faz o request com o servidor
-            result = requests.post(url, xml, headers=self._post_header(), cert=chave_cert, verify=False, timeout=120)
+            result = requests.post(url, xml, headers=self._post_header(), cert=chave_cert, verify=False, timeout=10)
             result.encoding = 'utf-8'
             return result
         except requests.exceptions.RequestException as e:
