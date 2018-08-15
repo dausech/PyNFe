@@ -199,9 +199,9 @@ class ComunicacaoSefaz(Comunicacao):
         # Monta XML para envio da requisição
         
         metodo = 'CadConsultaCadastro2'   
-        if self.uf.upper() == 'SP' || 'PR':
+        if self.uf.upper() == 'SP' or 'PR':
             metodo = 'CadConsultaCadastro4'     
-            
+
         metodo_ac = metodo   
         if self.uf.upper() == 'SVRS':                 
             metodo_ac = metodo+'/consultaCadastro2'   
