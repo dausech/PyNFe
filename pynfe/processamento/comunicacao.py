@@ -199,7 +199,7 @@ class ComunicacaoSefaz(Comunicacao):
         # Monta XML para envio da requisição
         
         metodo = 'CadConsultaCadastro2'   
-        if self.uf.upper() in ['SP', 'PR', 'SVRS']:
+        if self.uf.upper() in ['SP', 'PR']:
             metodo = 'CadConsultaCadastro4'     
 
         xml = self._construir_xml_status_pr(cabecalho=self._cabecalho_soap(metodo=metodo), metodo=metodo, dados=raiz)
