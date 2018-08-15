@@ -200,9 +200,13 @@ class ComunicacaoSefaz(Comunicacao):
         
         metodo = 'CadConsultaCadastro2'   
         if self.uf.upper() == 'SP' || 'PR':
-           metodo = 'CadConsultaCadastro4'        
-           
-        xml = self._construir_xml_status_pr(cabecalho=self._cabecalho_soap(metodo=metodo), metodo=metodo, dados=raiz)
+            metodo = 'CadConsultaCadastro4'     
+            
+        metodo_ac = metodo   
+        if self.uf.upper() == 'SVRS':                 
+            metodo_ac = metodo+'/consultaCadastro2'   
+
+        xml = self._construir_xml_status_pr(cabecalho=self._cabecalho_soap(metodo=metodo), metodo=metodo_ac, dados=raiz)
         # Chama método que efetua a requisição POST no servidor SOAP
         return self._post(url, xml)
 
