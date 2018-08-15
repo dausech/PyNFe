@@ -387,7 +387,7 @@ NFE = {
 	    	'CHAVE': 'nfe.ms.gov.br/ws/NFeConsultaProtocolo4',
 	    	'INUTILIZACAO': 'nfe.ms.gov.br/ws/NFeInutilizacao4',
 	    	'EVENTOS': 'nfe.ms.gov.br/ws/NFeRecepcaoEvento4',
-	    	'CADASTRO': 'nfe.fazenda.ms.gov.br/producao/services2/CadConsultaCadastro2',
+	    	'CADASTRO': 'nfe.sefaz.ms.gov.br/ws/CadConsultaCadastro4',
 	    	'HTTPS': 'https://',
 	    	'HOMOLOGACAO': 'https://homologacao.'
 	    },
