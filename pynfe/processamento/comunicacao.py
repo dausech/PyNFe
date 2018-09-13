@@ -198,9 +198,9 @@ class ComunicacaoSefaz(Comunicacao):
         # etree.SubElement(info, 'CPF').text = cpf
         # Monta XML para envio da requisição
         
-        metodo = 'CadConsultaCadastro2'   
-        if self.uf.upper() in ['SP', 'PR', 'MS']:
-            metodo = 'CadConsultaCadastro4'     
+        #metodo = 'CadConsultaCadastro2'   
+        #if self.uf.upper() in ['SP', 'PR', 'MS']:
+        metodo = 'CadConsultaCadastro4'     
 
         xml = self._construir_xml_status_pr(cabecalho=self._cabecalho_soap(metodo=metodo), metodo=metodo, dados=raiz)
         # Chama método que efetua a requisição POST no servidor SOAP
