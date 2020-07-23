@@ -1,16 +1,19 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
-from pip.req import parse_requirements as parse
+import setuptools
 
-requirements = lambda f: [str(i.req) for i in parse(f, session=False)]
-
-setup(
+setuptools.setup(
     name='PyNFe',
     version='0.4',
-    packages=find_packages(),
+    packages=setuptools.find_packages(),
     package_data={
         'pynfe': ['data/**/*.txt'],
     },
-    install_requires=requirements('requirements.txt'),
+    install_requires=[
+        'pyopenssl',
+        'requests',
+        'lxml',
+        'signxml',
+    ],
     zip_safe=False,
+    python_requires='>=3.6',
 )
