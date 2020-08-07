@@ -373,8 +373,8 @@ class ComunicacaoSefaz(Comunicacao):
             etree.SubElement(raiz, 'versaoDados').text = '1.01'
         elif metodo == 'NfeDownloadNF':
             etree.SubElement(raiz, 'versaoDados').text = '1.00'
-        elif metodo == 'CadConsultaCadastro2':    
-            etree.SubElement(raiz, 'versaoDados').text = '2.00'
+        elif metodo == 'CadConsultaCadastro4':    
+            etree.SubElement(raiz, 'versaoDados').text = '2.00'         
         else:
             etree.SubElement(raiz, 'versaoDados').text = VERSAO_PADRAO
         etree.SubElement(raiz, 'cUF').text = CODIGOS_ESTADOS[self.uf.upper()]
@@ -404,10 +404,14 @@ class ComunicacaoSefaz(Comunicacao):
 
     def _post_header(self):
         u"""Retorna um dicionário com os atributos para o cabeçalho da requisição HTTP"""
-        return {
-            u'content-type': u'application/soap+xml; charset=utf-8;',
-            u'Accept': u'application/soap+xml; charset=utf-8;',
-            }
+        # PE é a única UF que exige SOAPAction no header
+        response = {
+                        'content-type': 'application/soap+xml; charset=utf-8;',
+            'Accept': 'application/soap+xml; charset=utf-8;',
+        }
+        if self.uf.upper() == 'PE':
+            response["SOAPAction"] = ""
+        return response
 
     def _post(self, url, xml):
         certificadoA1 = CertificadoA1(self.certificado)

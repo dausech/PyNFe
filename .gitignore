@@ -16,6 +16,7 @@ __pycache__/
 .Python
 env/
 build/
+testes/
 develop-eggs/
 dist/
 downloads/
@@ -69,5 +70,7 @@ target/
 # sqlite
 *.db
 db.*
-
+consulta_debug.*
 TODO*
+.vscode/
+/venv/
